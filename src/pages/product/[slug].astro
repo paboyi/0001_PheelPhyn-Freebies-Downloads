@@ -1,268 +1,94 @@
 ---
+// src/pages/product/[slug].astro
 import { getCollection } from 'astro:content';
 import Base from '../../layouts/Base.astro';
+import '../../styles/product.css';
 
 export async function getStaticPaths() {
   const products = await getCollection('products');
   return products.map(product => ({
     params: { slug: product.slug },
-    props: { product },
+    props:  { product },
   }));
 }
 
 const { product } = Astro.props;
-const { data } = product;
+const { data }    = product;
 const { Content } = await product.render();
 
 const allImages = [data.image, ...(data.images ?? [])].filter(Boolean) as string[];
 ---
 
-<Base title={data.name}>
-  <style>
-    nav {
-      max-width: 1100px;
-      margin: 0 auto;
-      padding: 1.5rem 2rem;
-      display: flex;
-      align-items: center;
-      gap: 0.6rem;
-    }
-    nav a {
-      font-size: 0.78rem;
-      color: var(--muted);
-      text-decoration: none;
-      letter-spacing: 0.04em;
-      transition: color 0.15s;
-    }
-    nav a:hover { color: var(--text); }
-    nav span { font-size: 0.78rem; color: var(--border); }
+<Base title={`${data.name} — Downloads`}>
 
-    .product-wrap {
-      max-width: 1100px;
-      margin: 0 auto;
-      padding: 1rem 2rem 5rem;
-      display: grid;
-      grid-template-columns: 1fr 380px;
-      gap: 4rem;
-      align-items: start;
-    }
-    .image-main {
-      aspect-ratio: 4/3;
-      background: var(--surface2);
-      border: 1px solid var(--border);
-      overflow: hidden;
-    }
-    .image-main img {
-      width: 100%; height: 100%;
-      object-fit: cover;
-      display: block;
-    }
-    .image-placeholder {
-      width: 100%; height: 100%;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-family: 'Instrument Serif', serif;
-      font-size: 5rem;
-      color: var(--border);
-    }
-    .image-thumbs {
-      display: flex;
-      gap: 0.75rem;
-      margin-top: 0.75rem;
-      flex-wrap: wrap;
-    }
-    .thumb {
-      width: 80px; height: 60px;
-      background: var(--surface2);
-      border: 1px solid var(--border);
-      overflow: hidden;
-      cursor: pointer;
-      opacity: 0.6;
-      transition: opacity 0.15s, border-color 0.15s;
-    }
-    .thumb:hover, .thumb.active { opacity: 1; border-color: var(--accent); }
-    .thumb img { width: 100%; height: 100%; object-fit: cover; display: block; }
+  <div class="page-wrap">
 
-    .product-info { position: sticky; top: 2rem; }
+    <nav class="breadcrumb">
+      <a href="/">Downloads</a>
+      <span class="breadcrumb-sep">›</span>
+      <span class="breadcrumb-current">{data.name}</span>
+    </nav>
 
-    .product-tags { display: flex; gap: 0.4rem; flex-wrap: wrap; margin-bottom: 1rem; }
-    .tag {
-      font-size: 0.65rem;
-      font-weight: 500;
-      letter-spacing: 0.08em;
-      text-transform: uppercase;
-      color: var(--accent);
-      background: var(--accent-dim);
-      padding: 0.2rem 0.55rem;
-      border-radius: 2px;
-    }
-    .product-name {
-      font-family: 'Instrument Serif', serif;
-      font-size: clamp(1.8rem, 3.5vw, 2.8rem);
-      font-weight: 400;
-      line-height: 1.1;
-      letter-spacing: -0.02em;
-      margin-bottom: 0.75rem;
-    }
-    .product-tagline {
-      font-size: 0.9rem;
-      color: var(--muted);
-      line-height: 1.6;
-      margin-bottom: 2rem;
-    }
-    .download-box {
-      border: 1px solid var(--border);
-      background: var(--surface);
-      padding: 1.5rem;
-      margin-bottom: 2rem;
-    }
-    .dl-label {
-      font-size: 0.7rem;
-      color: var(--muted);
-      letter-spacing: 0.08em;
-      text-transform: uppercase;
-      margin-bottom: 0.6rem;
-    }
-    .dl-filename {
-      font-size: 0.82rem;
-      color: var(--text);
-      margin-bottom: 1.25rem;
-      word-break: break-all;
-    }
-    .dl-btn {
-      display: block;
-      width: 100%;
-      padding: 0.9rem 1rem;
-      background: var(--accent);
-      color: #0e0e0e;
-      font-family: 'Instrument Sans', sans-serif;
-      font-size: 0.85rem;
-      font-weight: 500;
-      letter-spacing: 0.06em;
-      text-transform: uppercase;
-      text-align: center;
-      text-decoration: none;
-      transition: opacity 0.15s;
-    }
-    .dl-btn:hover { opacity: 0.85; }
+    <div class="product-layout">
 
-    .product-desc {
-      border-top: 1px solid var(--border);
-      padding-top: 1.5rem;
-    }
-    .desc-label {
-      font-size: 0.7rem;
-      color: var(--muted);
-      letter-spacing: 0.08em;
-      text-transform: uppercase;
-      margin-bottom: 1rem;
-    }
+      <!-- Left: gallery -->
+      <div class="product-gallery">
+        <div class="gallery-main" data-color={data.color}>
+          {allImages.length > 0
+            ? <img id="gallery-main-img" src={allImages[0]} alt={data.name} />
+            : <div class="gallery-main-placeholder">↓</div>
+          }
+        </div>
 
-    /* Markdown content styles */
-    .prose p {
-      font-size: 0.85rem;
-      color: var(--muted);
-      line-height: 1.7;
-      margin-bottom: 0.75rem;
-    }
-    .prose h2 {
-      font-family: 'Instrument Serif', serif;
-      font-size: 1rem;
-      font-weight: 400;
-      color: var(--text);
-      margin: 1.25rem 0 0.6rem;
-    }
-    .prose ul { list-style: none; display: flex; flex-direction: column; gap: 0.4rem; }
-    .prose li {
-      font-size: 0.82rem;
-      color: var(--muted);
-      padding-left: 1.2rem;
-      position: relative;
-      line-height: 1.5;
-    }
-    .prose li::before {
-      content: "—";
-      position: absolute;
-      left: 0;
-      color: var(--accent);
-    }
-
-    .product-date {
-      margin-top: 2rem;
-      font-size: 0.7rem;
-      color: var(--border);
-      letter-spacing: 0.06em;
-    }
-
-    @media (max-width: 760px) {
-      .product-wrap { grid-template-columns: 1fr; gap: 2rem; padding: 1rem 1.25rem 4rem; }
-      .product-info { position: static; }
-      nav { padding-left: 1.25rem; padding-right: 1.25rem; }
-    }
-  </style>
-
-  <nav>
-    <a href="/">Downloads</a>
-    <span>/</span>
-    <span style="font-size: 0.78rem; color: var(--text);">{data.name}</span>
-  </nav>
-
-  <div class="product-wrap">
-    <div class="product-left">
-      <div class="image-main">
-        {allImages.length > 0
-          ? <img src={allImages[0]} alt={data.name} id="main-img" />
-          : <div class="image-placeholder">↓</div>
-        }
+        {allImages.length > 1 && (
+          <div class="gallery-thumbs">
+            {allImages.map((src, i) => (
+              <div
+                class={`gallery-thumb${i === 0 ? ' active' : ''}`}
+                data-src={src}
+              >
+                <img src={src} alt="" loading="lazy" />
+              </div>
+            ))}
+          </div>
+        )}
       </div>
 
-      {allImages.length > 1 && (
-        <div class="image-thumbs">
-          {allImages.map((src, i) => (
-            <div class={`thumb${i === 0 ? ' active' : ''}`} data-src={src}>
-              <img src={src} alt="" loading="lazy" />
-            </div>
-          ))}
+      <!-- Right: info -->
+      <div class="product-info">
+
+        <div class="product-tags">
+          {data.tags.map(tag => <span class="tag">{tag}</span>)}
         </div>
-      )}
+
+        <h1 class="product-name">{data.name}</h1>
+        <p class="product-tagline">{data.tagline}</p>
+
+        <div class="download-card">
+          <p class="download-card-label">Free download</p>
+          <p class="download-card-filename">{data.fileLabel}</p>
+          <a class="download-btn" href={data.file} download>
+            <span class="download-btn-icon">↓</span>
+            Download for free
+          </a>
+        </div>
+
+        <div class="product-description">
+          <p class="description-label">About this product</p>
+          <div class="prose">
+            <Content />
+          </div>
+        </div>
+
+        {data.date && (
+          <p class="product-date">Released {data.date}</p>
+        )}
+
+      </div>
     </div>
 
-    <div class="product-info">
-      <div class="product-tags">
-        {data.tags.map(tag => <span class="tag">{tag}</span>)}
-      </div>
-
-      <h1 class="product-name">{data.name}</h1>
-      <p class="product-tagline">{data.tagline}</p>
-
-      <div class="download-box">
-        <div class="dl-label">Free download</div>
-        <div class="dl-filename">{data.fileLabel}</div>
-        <a class="dl-btn" href={data.file} download>Download ↓</a>
-      </div>
-
-      <div class="product-desc">
-        <div class="desc-label">About this product</div>
-        <div class="prose">
-          <Content />
-        </div>
-      </div>
-
-      {data.date && <div class="product-date">Released {data.date}</div>}
-    </div>
   </div>
+
+  <script src="../../scripts/gallery.js"></script>
+
 </Base>
-
-<script>
-  const mainImg = document.getElementById('main-img') as HTMLImageElement | null;
-  const thumbs = document.querySelectorAll<HTMLElement>('.thumb');
-
-  thumbs.forEach(thumb => {
-    thumb.addEventListener('click', () => {
-      if (mainImg) mainImg.src = thumb.dataset.src!;
-      thumbs.forEach(t => t.classList.remove('active'));
-      thumb.classList.add('active');
-    });
-  });
-</script>

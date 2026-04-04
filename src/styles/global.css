@@ -1,0 +1,109 @@
+/* ============================================================
+   GLOBAL STYLES
+   downloads-site/src/styles/global.css
+   ============================================================ */
+
+@import url('https://fonts.googleapis.com/css2?family=Cormorant:ital,wght@0,300;0,400;1,300;1,400&family=DM+Sans:wght@300;400;500&display=swap');
+
+/* ── Reset ── */
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+/* ── Tokens ── */
+:root {
+  /* Palette */
+  --cream:        #faf7f2;
+  --cream-mid:    #f0ebe0;
+  --cream-dark:   #e2dbd0;
+  --blush:        #f2ddd8;
+  --blush-mid:    #e8c8c0;
+  --sage:         #d4e0d4;
+  --sage-mid:     #b8ceb8;
+  --sky:          #d4e4f0;
+  --sky-mid:      #b8cedf;
+  --lavender:     #e0d8f0;
+  --lavender-mid: #c8bce0;
+  --butter:       #f0e8c8;
+  --butter-mid:   #dfd4a8;
+
+  /* Text */
+  --text-primary:   #2a2520;
+  --text-secondary: #6b6258;
+  --text-muted:     #9c9088;
+  --text-accent:    #5a4a3a;
+
+  /* Surfaces */
+  --surface:      #ffffff;
+  --surface-2:    #faf7f2;
+
+  /* Border */
+  --border:       rgba(90, 74, 58, 0.12);
+  --border-mid:   rgba(90, 74, 58, 0.22);
+
+  /* Accents */
+  --accent:       #8b6f5e;
+  --accent-hover: #6e5549;
+
+  /* Spacing */
+  --max-width: 1080px;
+  --page-pad:  clamp(1.25rem, 4vw, 2.5rem);
+
+  /* Radius */
+  --radius-sm:  6px;
+  --radius-md:  12px;
+  --radius-lg:  20px;
+
+  /* Type */
+  --font-display: 'Cormorant', serif;
+  --font-body:    'DM Sans', sans-serif;
+}
+
+/* ── Base ── */
+html {
+  scroll-behavior: smooth;
+  -webkit-font-smoothing: antialiased;
+}
+
+body {
+  font-family: var(--font-body);
+  background: var(--cream);
+  color: var(--text-primary);
+  min-height: 100vh;
+  font-size: 16px;
+  line-height: 1.6;
+}
+
+img {
+  display: block;
+  max-width: 100%;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+/* ── Shared components ── */
+.tag {
+  display: inline-block;
+  font-family: var(--font-body);
+  font-size: 0.65rem;
+  font-weight: 500;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  padding: 0.25rem 0.65rem;
+  border-radius: 100px;
+  border: 1px solid var(--border-mid);
+  color: var(--text-accent);
+  background: var(--surface);
+}
+
+.page-wrap {
+  max-width: var(--max-width);
+  margin: 0 auto;
+  padding-left: var(--page-pad);
+  padding-right: var(--page-pad);
+}

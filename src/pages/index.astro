@@ -1,227 +1,79 @@
 ---
+// src/pages/index.astro
 import { getCollection } from 'astro:content';
 import Base from '../layouts/Base.astro';
+import '../styles/index.css';
 
 const products = await getCollection('products');
-const allTags = ['all', ...new Set(products.flatMap(p => p.data.tags))];
+const allTags  = ['all', ...new Set(products.flatMap(p => p.data.tags))];
 ---
 
 <Base title="Downloads">
-  <style>
-    .site-header {
-      padding: 3rem 2rem 0;
-      max-width: 1100px;
-      margin: 0 auto;
-      display: flex;
-      align-items: flex-end;
-      justify-content: space-between;
-      gap: 2rem;
-    }
-    .site-title {
-      font-family: 'Instrument Serif', serif;
-      font-size: clamp(2.4rem, 5vw, 4rem);
-      font-weight: 400;
-      line-height: 1;
-      letter-spacing: -0.02em;
-    }
-    .site-title em { font-style: italic; color: var(--accent); }
-    .site-subtitle {
-      font-size: 0.8rem;
-      color: var(--muted);
-      letter-spacing: 0.08em;
-      text-transform: uppercase;
-      padding-bottom: 0.4rem;
-    }
-    .filters {
-      max-width: 1100px;
-      margin: 2.5rem auto 0;
-      padding: 0 2rem 1.5rem;
-      display: flex;
-      gap: 0.5rem;
-      flex-wrap: wrap;
-      border-bottom: 1px solid var(--border);
-    }
-    .filter-btn {
-      font-family: 'Instrument Sans', sans-serif;
-      font-size: 0.75rem;
-      font-weight: 500;
-      letter-spacing: 0.06em;
-      text-transform: uppercase;
-      padding: 0.4rem 1rem;
-      border: 1px solid var(--border);
-      background: transparent;
-      color: var(--muted);
-      border-radius: 100px;
-      cursor: pointer;
-      transition: all 0.15s;
-    }
-    .filter-btn:hover { border-color: var(--muted); color: var(--text); }
-    .filter-btn.active { background: var(--accent); border-color: var(--accent); color: #0e0e0e; }
-    main {
-      max-width: 1100px;
-      margin: 0 auto;
-      padding: 2.5rem 2rem 4rem;
-    }
-    .grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-      gap: 1.5px;
-      background: var(--border);
-      border: 1px solid var(--border);
-    }
-    .card {
-      background: var(--bg);
-      display: flex;
-      flex-direction: column;
-      text-decoration: none;
-      color: inherit;
-      transition: background 0.15s;
-    }
-    .card:hover { background: var(--surface); }
-    .card:hover .card-arrow { opacity: 1; transform: translate(0, 0); }
-    .card-image {
-      aspect-ratio: 16/10;
-      background: var(--surface2);
-      overflow: hidden;
-    }
-    .card-image img {
-      width: 100%; height: 100%;
-      object-fit: cover;
-      display: block;
-      transition: transform 0.4s ease;
-    }
-    .card:hover .card-image img { transform: scale(1.03); }
-    .card-image-placeholder {
-      width: 100%; height: 100%;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-size: 2.5rem;
-      color: var(--border);
-    }
-    .card-body {
-      padding: 1.25rem 1.25rem 1rem;
-      flex: 1;
-      display: flex;
-      flex-direction: column;
-      gap: 0.5rem;
-    }
-    .card-tags { display: flex; gap: 0.4rem; flex-wrap: wrap; }
-    .tag {
-      font-size: 0.65rem;
-      font-weight: 500;
-      letter-spacing: 0.08em;
-      text-transform: uppercase;
-      color: var(--accent);
-      background: var(--accent-dim);
-      padding: 0.2rem 0.55rem;
-      border-radius: 2px;
-    }
-    .card-name {
-      font-family: 'Instrument Serif', serif;
-      font-size: 1.35rem;
-      font-weight: 400;
-      line-height: 1.2;
-    }
-    .card-tagline {
-      font-size: 0.82rem;
-      color: var(--muted);
-      line-height: 1.5;
-    }
-    .card-footer {
-      padding: 0 1.25rem 1.25rem;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-    }
-    .card-label { font-size: 0.72rem; color: var(--muted); letter-spacing: 0.04em; }
-    .card-arrow {
-      font-size: 1rem;
-      color: var(--accent);
-      opacity: 0;
-      transform: translate(-4px, 4px);
-      transition: all 0.2s;
-    }
-    footer {
-      max-width: 1100px;
-      margin: 0 auto;
-      padding: 0 2rem 3rem;
-      font-size: 0.72rem;
-      color: var(--muted);
-      letter-spacing: 0.04em;
-    }
-    @media (max-width: 540px) {
-      .site-header { flex-direction: column; align-items: flex-start; gap: 0.75rem; }
-      .site-header, .filters, main, footer { padding-left: 1.25rem; padding-right: 1.25rem; }
-    }
-  </style>
 
-  <header class="site-header">
-    <h1 class="site-title">Free <em>Downloads</em></h1>
-    <p class="site-subtitle">All files are free — no sign-up needed</p>
-  </header>
+  <div class="page-wrap">
 
-  <div class="filters">
-    {allTags.map(tag => (
-      <button class={`filter-btn${tag === 'all' ? ' active' : ''}`} data-tag={tag}>
-        {tag}
-      </button>
-    ))}
-  </div>
+    <header class="site-header">
+      <div class="header-left">
+        <p class="site-eyebrow">Free resources</p>
+        <h1 class="site-title">Down<em>loads</em></h1>
+      </div>
+      <div class="header-right">
+        <p class="site-note">
+          All files are free.<br />No account needed.
+        </p>
+      </div>
+    </header>
 
-  <main>
-    <div class="grid" id="grid">
+    <div class="filters">
+      <span class="filters-label">Filter</span>
+      {allTags.map(tag => (
+        <button
+          class={`filter-btn${tag === 'all' ? ' active' : ''}`}
+          data-tag={tag}
+        >
+          {tag}
+        </button>
+      ))}
+    </div>
+
+    <div class="product-grid" id="product-grid">
       {products.map(product => (
         <a
           class="card"
           href={`/product/${product.slug}`}
           data-tags={product.data.tags.join(',')}
         >
-          <div class="card-image">
+          <div class="card-image" data-color={product.data.color}>
             {product.data.image
               ? <img src={product.data.image} alt={product.data.name} loading="lazy" />
               : <div class="card-image-placeholder">↓</div>
             }
           </div>
+
           <div class="card-body">
             <div class="card-tags">
-              {product.data.tags.map(tag => <span class="tag">{tag}</span>)}
+              {product.data.tags.map(tag => (
+                <span class="tag">{tag}</span>
+              ))}
             </div>
             <div class="card-name">{product.data.name}</div>
-            <div class="card-tagline">{product.data.tagline}</div>
+            <p class="card-tagline">{product.data.tagline}</p>
           </div>
+
           <div class="card-footer">
-            <span class="card-label">{product.data.fileLabel}</span>
-            <span class="card-arrow">↗</span>
+            <span class="card-file-label">{product.data.fileLabel}</span>
+            <span class="card-cta">View <span>→</span></span>
           </div>
         </a>
       ))}
     </div>
-  </main>
 
-  <footer id="footer">{products.length} product{products.length !== 1 ? 's' : ''}</footer>
+    <footer class="site-footer">
+      <span id="product-count"></span>
+    </footer>
+
+  </div>
+
+  <script src="../scripts/filter.js"></script>
+
 </Base>
-
-<script>
-  const btns = document.querySelectorAll<HTMLButtonElement>('.filter-btn');
-  const cards = document.querySelectorAll<HTMLElement>('.card');
-  const footer = document.getElementById('footer')!;
-
-  btns.forEach(btn => {
-    btn.addEventListener('click', () => {
-      const tag = btn.dataset.tag!;
-      btns.forEach(b => b.classList.remove('active'));
-      btn.classList.add('active');
-
-      let visible = 0;
-      cards.forEach(card => {
-        const tags = card.dataset.tags!.split(',');
-        const show = tag === 'all' || tags.includes(tag);
-        card.style.display = show ? '' : 'none';
-        if (show) visible++;
-      });
-
-      footer.textContent = `${visible} of ${cards.length} product${cards.length !== 1 ? 's' : ''}`;
-    });
-  });
-</script>

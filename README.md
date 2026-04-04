@@ -1,103 +1,105 @@
 # Downloads Site
 
-A Gumroad-style free downloads page built with Astro. Product grid + individual product pages with image galleries, descriptions, and download buttons.
+A Gumroad-style free downloads page built with Astro.
+Pastel design, product grid, image galleries, tag filtering, and individual product pages.
 
 ---
 
-## First time setup
+## Getting started
 
 ```bash
 npm install
 npm run dev
 ```
 
-Then open http://localhost:4321 in your browser.
+Open http://localhost:4321
 
 ---
 
-## Folder structure
+## Project structure
 
 ```
 downloads-site/
 ├── src/
 │   ├── content/
-│   │   ├── config.ts           ← defines the fields each product can have
-│   │   └── products/           ← ONE .md FILE PER PRODUCT — add yours here
-│   │       ├── template-pack-01.md
-│   │       ├── preset-pack-v2.md
-│   │       └── icon-set-mono.md
+│   │   ├── config.ts               ← defines product fields
+│   │   └── products/               ← one .md file per product
+│   │       └── my-product.md
 │   ├── layouts/
-│   │   └── Base.astro          ← shared HTML wrapper (fonts, CSS vars)
-│   └── pages/
-│       ├── index.astro         ← storefront / product grid
-│       └── product/
-│           └── [slug].astro    ← product page template (don't rename)
+│   │   └── Base.astro              ← shared HTML shell
+│   ├── pages/
+│   │   ├── index.astro             ← storefront / grid
+│   │   └── product/
+│   │       └── [slug].astro        ← product page template
+│   ├── scripts/
+│   │   ├── filter.js               ← tag filter behaviour
+│   │   └── gallery.js              ← image thumbnail switcher
+│   └── styles/
+│       ├── global.css              ← design tokens, reset, shared components
+│       ├── index.css               ← storefront styles
+│       └── product.css             ← product page styles
 ├── public/
-│   ├── files/                  ← put your downloadable files here
-│   └── images/                 ← put your preview images here
+│   ├── files/                      ← downloadable files go here
+│   └── images/                     ← product preview images go here
 ├── astro.config.mjs
 └── package.json
 ```
 
 ---
 
-## How to add a product
+## Adding a product
 
 **1. Add your files to `public/`**
-
 ```
 public/files/my-pack.zip
-public/images/my-pack.jpg     ← recommended: 1200×800px
+public/images/my-pack.jpg    ← recommended 1200×800px
 ```
 
-**2. Create a new markdown file in `src/content/products/`**
+**2. Create `src/content/products/my-pack.md`**
 
-The filename becomes the URL slug. e.g. `my-pack.md` → `/product/my-pack`
+The filename → the URL. `my-pack.md` = `/product/my-pack`
 
-```md
+```markdown
 ---
 name: "My Pack"
-tagline: "A one-line description shown on the card."
+tagline: "Short description shown on the card."
 image: "/images/my-pack.jpg"
 images: []
+color: "blush"
 file: "/files/my-pack.zip"
-fileLabel: "Download ZIP · 12 MB"
+fileLabel: "ZIP archive · 12 MB"
 tags: ["templates", "design"]
 date: "April 2025"
 ---
 
-Write your longer description here in normal markdown.
+Write your full description here in markdown.
 
 ## What's included
 
 - Item one
 - Item two
-- Item three
 ```
 
-**3. Save the file** — the dev server hot-reloads instantly, or push to GitHub to deploy.
+**Color options for the placeholder background:**
+`blush` · `sage` · `sky` · `lavender` · `butter` · `cream`
+
+**3. Save and push** — Vercel auto-deploys.
 
 ---
 
 ## Deploy to Vercel
 
-1. Push this folder to a GitHub repo
-2. Go to vercel.com → sign in with GitHub → Add New Project → import the repo
-3. Vercel detects Astro automatically — just click Deploy
+1. Push to GitHub
+2. vercel.com → Add New Project → import repo
+3. Vercel detects Astro automatically → Deploy
 
-No `vercel.json` needed. Vercel handles everything.
-
----
-
-## Customise the site title
-
-Open `src/pages/index.astro` and edit the `<h1>` tag near the bottom of the file.
+No extra config needed.
 
 ---
 
-## Tips
+## Customising
 
-- **Tags**: keep names consistent across products — they become the filter buttons automatically
-- **Gallery images**: add extra images to the `images: []` array — they appear as clickable thumbnails on the product page
-- **No image?**: leave `image` as `""` and a placeholder shows instead
-- **Large files** (over 100 MB): upload to Google Drive and use a direct-download link in the `file` field
+- **Site title / header** — edit `src/pages/index.astro`
+- **Colors / fonts** — edit `src/styles/global.css` (CSS variables at the top)
+- **Card layout** — edit `src/styles/index.css`
+- **Product page layout** — edit `src/styles/product.css`
