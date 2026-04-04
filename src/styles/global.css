@@ -29,16 +29,17 @@
   --blush-mid:    #ffc3d6;
 
   --sage:         #f2fff2;
-  --sage-mid:     #b8ceb8;
+  --sage-mid:     #b5ceb5;
 
   --sky:          #d4e4f0;
-  --sky-mid:      #b8cedf;
+  --sky-mid:      #a9cce7;
 
   --lavender:     #f0e8ff;
-  --lavender-mid: #c8bce0;
+  --lavender-mid: #dac7ff;
 
   --butter:       #f0e8c8;
   --butter-mid:   #dfd4a8;
+
 
   /* Text */
   --text-primary:   #2a2520;
@@ -111,29 +112,73 @@ a {
 
 
 /*  Shared components  */
+.tag {
+  display: inline-block;
+  font-family: var(--font-body);
+  font-size: 0.6rem;
+  font-weight: 500;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  padding: 0.25rem 0.7rem;
+  border-radius: 100px;
+  border: 1.5px solid;
+}
 
 .card[data-color="cream"] 
 {
   .tag {
     background: var(--cream);
-    display: inline-block;
-    font-family: var(--font-body);
-    font-size: 0.65rem;
-    font-weight: 500;
-    letter-spacing: 0.1em;
-    text-transform: uppercase;
-    padding: 0.25rem 0.65rem;
-    border-radius: 100px;
-    border: 1px solid var(--border-mid);
+    border-color: var(--cream-dark);
+    color: var(--text-accent);
+  }
+}
+
+.card[data-color="blush"] 
+{
+  .tag {
+    background: var(--blush);
+    border-color: var(--blush-mid);
+    color: var(--text-accent);
+  }
+}
+
+.card[data-color="sage"] 
+{
+  .tag {
+    background: var(--sage);
+    border-color: var(--sage-mid);
     color: var(--text-accent);
   }
 }
 
 
-/* .tag { } */
+.card[data-color="sky"] 
+{
+  .tag {
+    background: var(--sky);
+    border-color: var(--sky-mid);
+    color: var(--text-accent);
+  }
+}
 
 
+.card[data-color="lavender"] 
+{
+  .tag {
+    background: var(--lavender);
+    border-color: var(--lavender-mid);
+    color: var(--text-accent);
+  }
+}
 
+.card[data-color="butter"] 
+{
+  .tag {
+    background: var(--butter);
+    border-color: var(--butter-mid);
+    color: var(--text-accent);
+  }
+}
 
 
 
