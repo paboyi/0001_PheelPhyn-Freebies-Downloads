@@ -8,14 +8,14 @@ const products = await getCollection('products');
 const allTags  = ['all', ...new Set(products.flatMap(p => p.data.tags))];
 ---
 
-<Base title="Downloads">
+<Base title="PheelPhyn downloads">
 
   <div class="page-wrap">
 
     <header class="site-header">
       <div class="header-left">
         <p class="site-eyebrow">Free resources</p>
-        <h1 class="site-title">Down<em>loads</em></h1>
+        <h1 class="site-title">Downloads</h1>
       </div>
       <div class="header-right">
         <p class="site-note">
@@ -42,6 +42,7 @@ const allTags  = ['all', ...new Set(products.flatMap(p => p.data.tags))];
           class="card"
           href={`/product/${product.slug}`}
           data-tags={product.data.tags.join(',')}
+          data-color={product.data.color}
         >
           <div class="card-image" data-color={product.data.color}>
             {product.data.image

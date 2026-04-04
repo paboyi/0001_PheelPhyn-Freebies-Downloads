@@ -1,7 +1,7 @@
-// ============================================================
+
 //  INDEX PAGE — tag filter behaviour
 //  downloads-site/src/scripts/filter.js
-// ============================================================
+
 
 document.addEventListener('DOMContentLoaded', () => {
   const btns   = document.querySelectorAll('.filter-btn');
@@ -21,7 +21,7 @@ document.addEventListener('DOMContentLoaded', () => {
       btns.forEach(b => b.classList.remove('active'));
       btn.classList.add('active');
 
-      // Show / hide cards
+      // Show or hide cards
       let visible = 0;
       cards.forEach(card => {
         const tags = card.dataset.tags.split(',');
