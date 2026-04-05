@@ -165,7 +165,7 @@
 .card[data-color="blush"] 
 {
   &:hover {
-    box-shadow: 5px 5px 5px var(--blush);
+    box-shadow: 0px 5px 10px rgb(from var(--blush) r g b / 0.9);
   }
 
   .card-name {
@@ -184,7 +184,7 @@
 .card[data-color="sage"] 
 {
   &:hover {
-    box-shadow: 5px 5px 5px var(--sage);
+    box-shadow: 0px 5px 10px rgb(from var(--sage) r g b / 0.9);
   }
 
   .card-name {
@@ -203,7 +203,7 @@
 .card[data-color="sky"] 
 {
   &:hover {
-    box-shadow: 5px 5px 5px var(--sky);
+    box-shadow: 0px 5px 10px rgb(from var(--sky) r g b / 0.7);
   }
 
   .card-name {
@@ -222,7 +222,7 @@
 .card[data-color="lavender"] 
 {
   &:hover {
-    box-shadow: 5px 5px 5px var(--lavender);
+    box-shadow: 0px 5px 10px rgb(from var(--lavender) r g b / 0.9);
   }
 
   .card-name {
@@ -241,7 +241,7 @@
 .card[data-color="cream"] 
 {
   &:hover {
-    box-shadow: 5px 5px 5px var(--cream);
+    box-shadow: 0px 5px 10px rgb(from var(--cream) r g b / 0.9);
   }
 
   .card-name {
@@ -260,7 +260,7 @@
 .card[data-color="butter"] 
 {
   &:hover {
-    box-shadow: 5px 5px 5px var(--butter);
+    box-shadow: 0px 5px 10px rgb(from var(--butter) r g b / 0.9);
   }
 
   .card-name {
