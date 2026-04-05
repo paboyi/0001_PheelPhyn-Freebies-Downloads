@@ -16,6 +16,15 @@ Open http://localhost:4321
 
 ---
 
+## Trouble shooting
+If Git times out when committing large files (such as images)
+Try to run:
+```bash
+git config --global http.timeout 600
+```
+
+---
+
 ## Project structure
 
 ```
