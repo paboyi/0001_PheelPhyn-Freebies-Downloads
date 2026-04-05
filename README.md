@@ -22,6 +22,7 @@ Try to run:
 ```bash
 git config --global http.timeout 600
 ```
+and retry commit.
 
 ---
 
