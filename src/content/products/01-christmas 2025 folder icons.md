@@ -2,6 +2,9 @@
 name: "Christmas folder icons 2025"
 tagline: "15 christmas themed Apple / MacBook folder icons"
 image: "/images/01-christmas 2025 0.png"
+imagetwo: "/images/01-christmas 2025 1.png"
+imagethree: "/images/xmas icon_11.png"
+icons: ["/images/xmas icon_5.png", "/images/xmas icon_11.png" ]
 images: [ "/images/01-christmas 2025 2.png", "/images/01-christmas 2025 1.png", "/images/01-christmas 2025 3.png", "/images/01-christmas 2025 5.png"]
 color: "blush"
 file: "/files/xmas icons.zip"

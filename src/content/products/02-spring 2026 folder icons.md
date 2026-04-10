@@ -2,6 +2,7 @@
 name: "Spring folder icons 2026"
 tagline: "---"
 image: "/images/02-spring 2026.png"
+imagetwo: ""
 images: []
 color: "sky"
 file: "/files/#"

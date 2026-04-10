@@ -19,7 +19,7 @@
 /*  Tokens  */
 :root {
   /* Palette */
-  --main-background: #ffffff;
+  --main-background: #fdfdfd;
 
   --cream:        #fff9e6; /* fff9e6 */
   --cream-dark:   #c0ac6c;
@@ -59,13 +59,13 @@
   --accent-hover: #820038;
 
   /* Spacing */
-  --max-width: 1080px;
+  --max-width: 2000px;
   --page-pad:  clamp(1.25rem, 4vw, 2.5rem);
 
   /* Radius */
   --radius-sm:  6px;
   --radius-md:  12px;
-  --radius-lg:  20px;
+  --radius-lg:  1rem;
 
   /* Type */
   /* --font-display: 'Cormorant', serif;
@@ -85,13 +85,51 @@ html {
 }
 
 body {
-  font-family: var(--font-body);
   background: var(--main-background);
-  color: var(--text-primary);
-  min-height: 100vh;
+  font-family: var(--font-body);
   font-size: 16px;
   line-height: 1.6;
+  color: var(--text-primary);
+  display: flex;
+  position: relative;
+  justify-content: center;
+  min-height: 100vh;
 }
+
+.bg-grid {
+  position: absolute;
+  inset: 0; /* shorthand: top, right, left, bootm = 0 */
+  z-index: -10;
+  background-color: rgba(255, 255, 255);
+  background-image: url(/images/square\ grid\ svg.svg);
+  background-size: 40%;
+  background-repeat: repeat;
+  opacity: 0.5;
+}
+
+/* body pseudo elements of gradients */
+body::before, body::after {
+  background-color: rgba(255, 66, 141, 0.2);
+  position: absolute;
+  content: "";
+  height: 180px;
+  width: 100%;
+  z-index: -2;
+}
+
+body::before {
+  top: 0;
+  mask-image: linear-gradient(to bottom, black 25%, transparent 100%);
+  -webkit-mask-image: linear-gradient(to bottom, black 25%, transparent 100%);
+}
+
+body::after {
+  bottom: 0;
+  mask-image: linear-gradient(to top, black 25%, transparent 100%);
+  -webkit-mask-image: linear-gradient(to top, black 25%, transparent 100%);
+}
+
+
 
 img {
   display: block;
@@ -110,7 +148,23 @@ a {
 
 
 
-/*  Shared components  */
+/*  Shared components between pages */
+.page-wrap {
+  /* background-color: yellow; */
+  background-color: rgb(255, 255, 255, 0.1);
+  border: 3px solid white;
+  backdrop-filter: blur(10px);
+  border-radius: 2rem;
+  width: 1200px;
+  max-width: var(--max-width);
+  margin: 100px auto;
+  padding-left: var(--page-pad);
+  padding-right: var(--page-pad);
+  box-shadow: 5px 5px 10px rgba(193, 0, 93, 0.2);
+  z-index: 10;
+}
+
+
 .tag {
   display: inline-block;
   font-family: var(--font-body);
@@ -180,12 +234,3 @@ a {
 }
 
 
-
-
-.page-wrap {
-  /* background-color: aqua; */
-  max-width: var(--max-width);
-  margin: 0 auto;
-  padding-left: var(--page-pad);
-  padding-right: var(--page-pad);
-}

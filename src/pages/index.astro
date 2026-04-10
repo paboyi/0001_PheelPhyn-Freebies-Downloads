@@ -10,8 +10,9 @@ const products = await getCollection('products');
 const allTags  = ['all', ...new Set(products.flatMap(p => p.data.tags))];
 ---
 
-<Base title="PheelPhyn downloads">
-
+<Base title="Pheel Downloads">
+ 
+ <div class="bg-grid"> </div>
   <div class="page-wrap">
 
     <header class="site-header">
@@ -21,7 +22,7 @@ const allTags  = ['all', ...new Set(products.flatMap(p => p.data.tags))];
       </div>
       <div class="header-right">
         <p class="site-note">
-          All files are free.<br />No account needed.
+          All files are <strong>Free</strong>. No account needed.
         </p>
       </div>
     </header>
@@ -46,12 +47,29 @@ const allTags  = ['all', ...new Set(products.flatMap(p => p.data.tags))];
           data-tags={product.data.tags.join(',')}
           data-color={product.data.color}
         >
-          <div class="card-image" data-color={product.data.color}>
+         
+          <div class="card-image-container" data-color={product.data.color}>
             {product.data.image
-              ? <img src={product.data.image} alt={product.data.name} loading="lazy" />
-              : <div class="card-image-placeholder">↓</div>
+              ? 
+                <div class="image-container">
+                  <img src={product.data.image} alt={product.data.name} class="main-image"/>
+                  <div class="image-blank_2">
+                    <img src={product.data.imagetwo} alt="" /> 
+                  </div>
+                  <div class="div-blank_1">
+                    <img src={product.data.imagethree} alt="" /> 
+                  </div>
+
+                  <div class="icon1">
+                    <img src={product.data.icons[0]} alt="">
+                  </div>
+                </div>
+              : 
+                <div class="card-image-placeholder">↓</div>
             }
           </div>
+        
+
 
           <div class="card-body">
             <div class="card-tags">
