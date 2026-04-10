@@ -93,7 +93,6 @@
 
 /*  Grid  */
 .product-grid {
-  /* background-color: lime; */
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
   /* grid-template-columns: 3fr 3fr 3fr; */
@@ -113,9 +112,9 @@
 .card {
   display: flex;
   flex-direction: column;
-  background-color: rgb(241, 226, 24, 0.5);
-  backdrop-filter: blur(3);
-  -webkit-backdrop-filter: blur(3);  
+  background-color: rgba(255, 255, 255);
+  /* backdrop-filter: blur(3px); */
+  /* -webkit-backdrop-filter: blur(3);   */
   border: 1px solid var(--border);
   border-radius: var(--radius-lg);
   min-height: 500px;
@@ -201,7 +200,9 @@
   }
 
   .icon1 {
-    display: none;
+  z-index: 1;
+  transform: scale(0.25) translateX(600px) translateY(120px) rotate(10deg);
+  filter: none;
   }
 }
 
@@ -227,7 +228,28 @@
   position: absolute;
   transform: scale(0.4) translateX(300px) translateY(200px) rotate(10deg);
   z-index: -1;
+  filter: blur(4px);
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
