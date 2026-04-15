@@ -9,7 +9,7 @@ images: [ "/images/01-christmas 2025 2.png", "/images/01-christmas 2025 1.png", 
 color: "blush"
 file: "/files/xmas icons.zip"
 fileLabel: "ZIP archive · 11.5 MB"
-tags: ["icons", "design"]
+tags: ["icons", "design", "Apple-specific", "Macbook"]
 date: "December 2025"
 ---
 
@@ -18,4 +18,4 @@ A clean, consistent MacBook folder icon set built on a 1:1 square ratio.
 
 ## What's included
 - 15 christmas themed Apple MacBook folder icons
-- 15 PNGs (1× size)
+- 15 PNGs (1×1 size)
