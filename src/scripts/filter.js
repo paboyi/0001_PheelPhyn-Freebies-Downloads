@@ -1,6 +1,4 @@
-
-//  INDEX PAGE — tag filter behaviour
-//  downloads-site/src/scripts/filter.js
+//  INDEX PAGE: Controls tag filter behaviour
 
 
 document.addEventListener('DOMContentLoaded', () => {

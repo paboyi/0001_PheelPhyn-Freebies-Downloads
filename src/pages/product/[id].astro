@@ -1,27 +1,27 @@
 ---
-// src/pages/product/[slug].astro
 import { getCollection } from 'astro:content';
 import Base from '../../layouts/Base.astro';
 import '../../styles/product.css';
 import '../../styles/global.css';
+import { render } from 'astro:content';
 
 
 export async function getStaticPaths() {
   const products = await getCollection('products');
   return products.map(product => ({
-    params: { slug: product.slug },
+    params: { id: product.id },
     props:  { product },
   }));
 }
 
 const { product } = Astro.props;
 const { data }    = product;
-const { Content } = await product.render();
+const { Content } = await render(product);
 
 const allImages = [data.image, ...(data.images ?? [])].filter(Boolean) as string[];
 ---
 
-<Base title={`${data.name} — Downloads`}>
+<Base title={`${data.name} | Downloads`}>
 
   <div class="page-wrap">
 

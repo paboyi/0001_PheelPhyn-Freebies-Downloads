@@ -1,7 +1,5 @@
-// ============================================================
-//  PRODUCT PAGE — image gallery thumbnail switcher
-//  downloads-site/src/scripts/gallery.js
-// ============================================================
+//  PRODUCT PAGE - image gallery thumbnail switcher
+
 
 document.addEventListener('DOMContentLoaded', () => {
   const mainImg = document.getElementById('gallery-main-img');

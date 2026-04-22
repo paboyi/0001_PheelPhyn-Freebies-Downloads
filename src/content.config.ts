@@ -1,8 +1,9 @@
-// src/content/config.ts
-import { defineCollection, z } from 'astro:content';
+import { defineCollection } from 'astro:content';
+import { glob, file } from 'astro/loaders';
+import { z } from 'astro/zod';
 
 const products = defineCollection({
-  type: 'content',
+  loader: glob({ base: './src/content/products', pattern: '**/*.{md,mdx}' }),
   schema: z.object({
     name:      z.string(),
     tagline:   z.string(),
