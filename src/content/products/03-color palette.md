@@ -8,7 +8,7 @@ icons: ["/images/Velvet Signal color codes/b_1_18.png", "#"]
 images: ["/images/Velvet Signal color codes/VS26_covers_1.png", "/images/Velvet Signal color codes/VS26_covers_2.png", "/images/Velvet Signal color codes/VS26_covers_3.png", "/images/Velvet Signal color codes/VS26_covers_4.png"]
 color: "lavender"
 file: "/files/goodnotes folder color code.zip"
-fileLabel: "ZIP archive · 23.6 MB"
+fileLabel: "ZIP archive · 9.1 MB"
 tags: ["Goodnotes", "Color Codes"]
 date: "December 2025"
 codeNo: "VS26"
