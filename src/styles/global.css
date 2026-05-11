@@ -61,6 +61,7 @@
   /* Spacing */
   --max-width: 2000px;
   --page-pad:  clamp(1.25rem, 4vw, 2.5rem);
+  /* --page-pad: 5rem; */
 
   /* Radius */
   --radius-sm:  6px;
@@ -176,6 +177,16 @@ a {
   border-radius: 100px;
   border: 1.5px solid;
 }
+
+
+
+
+
+
+
+
+
+
 
 .card[data-color="cream"] 
 {

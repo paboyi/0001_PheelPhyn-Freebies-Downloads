@@ -17,6 +17,7 @@ const products = defineCollection({
     fileLabel: z.string(),
     tags:      z.array(z.string()),
     date:      z.string().optional().default(''),
+    codeNo:    z.string(),
   }),
 });
 

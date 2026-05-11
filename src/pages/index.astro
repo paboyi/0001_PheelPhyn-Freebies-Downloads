@@ -7,12 +7,12 @@ import '../styles/global.css';
 
 const products = await getCollection('products');
 const allTags  = ['all', ...new Set(products.flatMap(p => p.data.tags))];
-console.log(products);
+// console.log(products);
 ---
 
 <Base title="Pheel Downloads">
- 
- <div class="bg-grid"> </div>
+
+<div class="bg-grid"> </div>
   <div class="page-wrap">
 
     <header class="site-header">
@@ -47,7 +47,7 @@ console.log(products);
           data-tags={product.data.tags.join(',')}
           data-color={product.data.color}
         >
-         
+        
           <div class="card-image-container" data-color={product.data.color}>
             {product.data.image
               ? 
@@ -69,8 +69,6 @@ console.log(products);
             }
           </div>
         
-
-
           <div class="card-body">
             <div class="card-tags">
               {product.data.tags.map(tag => (
@@ -85,6 +83,7 @@ console.log(products);
             <span class="card-file-label">{product.data.fileLabel}</span>
             <span class="card-cta">View <span>→</span></span>
           </div>
+
         </a>
       ))}
     </div>
