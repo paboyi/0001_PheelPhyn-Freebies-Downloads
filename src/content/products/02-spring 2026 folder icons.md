@@ -9,7 +9,7 @@ images: []
 color: "sky"
 file: "/files/spring icons.zip"
 fileLabel: "ZIP archive · 9.2 MB"
-tags: ["icons", "design", "Apple-specific", "Macbook"]
+tags: ["Macbook"]
 date: "April 2026"
 codeNo: "SFI26"
 ---

@@ -9,7 +9,7 @@ images: [ "/images/Christmas 2025 folder icons/01-christmas 2025 2.png", "/image
 color: "blush"
 file: "/files/xmas icons.zip"
 fileLabel: "ZIP archive · 11.5 MB"
-tags: ["icons", "design", "Apple-specific", "Macbook"]
+tags: ["Macbook"]
 date: "December 2025"
 codeNo: "CFI25"
 ---
