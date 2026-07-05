@@ -1,11 +1,11 @@
 ---
 name: "Christmas folder icons 2025"
 tagline: "15 christmas themed Apple / MacBook folder icons"
-image: "/images/Christmas 2025 folder icons/01-christmas 2025 0.png"
-imagetwo: "/images/Christmas 2025 folder icons/xmas icon_5.png"
-imagethree: "/images/Christmas 2025 folder icons/xmas icon_11.png"
-icons: ["/images/Christmas 2025 folder icons/xmas icon_7.png", "/images/Christmas 2025 folder icons/xmas icon_5.png" ]
-images: [ "/images/Christmas 2025 folder icons/01-christmas 2025 2.png", "/images/Christmas 2025 folder icons/01-christmas 2025 1.png", "/images/Christmas 2025 folder icons/01-christmas 2025 3.png", "/images/Christmas 2025 folder icons/01-christmas 2025 5.png"]
+image: "/images/1_Christmas 2025 folder icons/01-christmas-2025-0.webp"
+imagetwo: "/images/1_Christmas 2025 folder icons/xmas-icon_5.webp"
+imagethree: "/images/1_Christmas 2025 folder icons/xmas-icon_11.webp"
+icons: ["/images/1_Christmas 2025 folder icons/xmas-icon_7.webp", "/images/1_Christmas 2025 folder icons/xmas-icon_5.webp" ]
+images: [ "/images/1_Christmas 2025 folder icons/01-christmas-2025-2.webp", "/images/1_Christmas 2025 folder icons/01-christmas-2025-1.webp", "/images/1_Christmas 2025 folder icons/01-christmas-2025-3.webp", "/images/1_Christmas 2025 folder icons/01-christmas-2025-5.webp"]
 color: "blush"
 file: "/files/xmas icons.zip"
 fileLabel: "ZIP archive · 11.5 MB"
@@ -19,4 +19,4 @@ A clean, consistent MacBook folder icon set built on a 1:1 square ratio.
 
 ## What's included
 - 15 christmas themed Apple MacBook folder icons
-- 15 PNGs (1×1 size)
+- 15 webps (1×1 size)

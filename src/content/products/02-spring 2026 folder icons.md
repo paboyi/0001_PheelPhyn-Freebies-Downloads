@@ -1,10 +1,10 @@
 ---
 name: "Spring folder icons 2026"
 tagline: "18 Spring themed Apple / MacBook folder icons"
-image: "/images/Spring 2026 folder icons/02-spring 2026_0.png"
-imagetwo: "/images/Spring 2026 folder icons/Artboard 1_16.png"
-imagethree: "/images/Spring 2026 folder icons/Artboard 1_2.png"
-icons: ["/images/Spring 2026 folder icons/Artboard 1_18.png"]
+image: "/images/2_Spring 2026 folder icons/02-spring 2026_0.webp"
+imagetwo: "/images/2_Spring 2026 folder icons/Artboard 1_16.webp"
+imagethree: "/images/2_Spring 2026 folder icons/Artboard 1_2.webp"
+icons: ["/images/2_Spring 2026 folder icons/Artboard 1_18.webp"]
 images: []
 color: "sky"
 file: "/files/spring icons.zip"

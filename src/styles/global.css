@@ -102,7 +102,7 @@ body {
   inset: 0; /* shorthand: top, right, left, bootm = 0 */
   z-index: -10;
   background-color: rgba(255, 255, 255);
-  background-image: url(/images/square\ grid\ svg.svg);
+  background-image: url(/images/square-grid.webp);
   background-size: 40%;
   background-repeat: repeat;
   opacity: 0.5;

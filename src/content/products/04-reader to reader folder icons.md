@@ -1,7 +1,7 @@
 ---
 name: "Folder icons for Readers"
 tagline: "Book lovers. Comerge here. Your heart desire has been answered and you didn't even ask. Here's something from a Reader to another. With Love"
-image: "/images/03-reader-to-reader-2026 2.png"
+image: "/images/03-reader-to-reader-2026-2.webp"
 imagetwo: ""
 imagethree: ""
 images: []

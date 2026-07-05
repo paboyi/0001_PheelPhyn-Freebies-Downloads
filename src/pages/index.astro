@@ -1,5 +1,6 @@
 ---
 import { getCollection } from 'astro:content';
+import { Image } from "astro:assets";
 import Base from '../layouts/Base.astro';
 import '../styles/index.css';
 import '../styles/global.css';
@@ -52,16 +53,19 @@ const allTags  = ['all', ...new Set(products.flatMap(p => p.data.tags))];
             {product.data.image
               ? 
                 <div class="image-container">
-                  <img src={product.data.image} alt={product.data.name} class="main-image"/>
+                  <Image src={product.data.image} alt={product.data.name} class="main-image" width={800} height={600}/>
                   <div class="image-blank_2">
-                    <img src={product.data.imagetwo} alt="" /> 
+                    <img src={product.data.imagetwo} alt="" loading="lazy"/> 
+                    {/* <Image src={product.data.imagetwo} alt="..." width={800} height={600}/>  */}
                   </div>
                   <div class="div-blank_1">
-                    <img src={product.data.imagethree} alt="" /> 
+                    <img src={product.data.imagethree} alt="" loading="lazy"/> 
+                    {/* <Image src={product.data.imagethree} alt="..." width={800} height={600}/>  */}
                   </div>
 
                   <div class="icon1">
-                    <img src={product.data.icons[0]} alt="">
+                    <img src={product.data.icons[0]} alt="" loading="lazy">
+                    {/* <Image src={product.data.icons[0]} alt="..." width={800} height={600}/> */}
                   </div>
                 </div>
               : 

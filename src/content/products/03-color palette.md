@@ -1,11 +1,11 @@
 ---
 name: "Velvet Signal | color palette"
 tagline: "Goodnotes Color palette cards"
-image: "/images/Velvet Signal color codes/VS26_covers_3a.png"
-imagetwo: "/images/Velvet Signal color codes/cardstack.png"
-imagethree: "/images/Velvet Signal color codes/b_1_9.png"
-icons: ["/images/Velvet Signal color codes/b_1_18.png", "#"]
-images: ["/images/Velvet Signal color codes/VS26_covers_1.png", "/images/Velvet Signal color codes/VS26_covers_2.png", "/images/Velvet Signal color codes/VS26_covers_3.png", "/images/Velvet Signal color codes/VS26_covers_4.png"]
+image: "/images/3_Velvet Signal color codes/VS26_covers_3a.webp"
+imagetwo: "/images/3_Velvet Signal color codes/cardstack.webp"
+imagethree: "/images/3_Velvet Signal color codes/b_1_9.webp"
+icons: ["/images/3_Velvet Signal color codes/b_1_18.webp", "#"]
+images: ["/images/3_Velvet Signal color codes/VS26_covers_1.webp", "/images/3_Velvet Signal color codes/VS26_covers_2.webp", "/images/3_Velvet Signal color codes/VS26_covers_3.webp", "/images/3_Velvet Signal color codes/VS26_covers_4.webp"]
 color: "lavender"
 file: "/files/goodnotes folder color code.zip"
 fileLabel: "ZIP archive · 9.1 MB"

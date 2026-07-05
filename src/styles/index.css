@@ -202,7 +202,7 @@
 
   .icon1 {
   z-index: 1;
-  transform: scale(0.25) translateX(600px) translateY(120px) rotate(10deg);
+  transform: scale(0.25) translateX(600px) translateY(20px) rotate(10deg);
   filter: none;
   }
 }
@@ -227,9 +227,9 @@
 
 .icon1 {
   position: absolute;
-  transform: scale(0.4) translateX(300px) translateY(200px) rotate(10deg);
+  transform: scale(0.4) translateX(300px) translateY(-100px) rotate(10deg);
   z-index: -1;
-  filter: blur(4px);
+  filter: blur(6px);
 }
 
 

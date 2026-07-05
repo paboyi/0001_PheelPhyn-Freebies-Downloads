@@ -37,7 +37,7 @@ const allImages = [data.image, ...(data.images ?? [])].filter(Boolean) as string
       <div class="product-gallery">
         <div class="gallery-main" data-color={data.color}>
           {allImages.length > 0
-            ? <img id="gallery-main-img" src={allImages[0]} alt={data.name} />
+            ? <img id="gallery-main-img" src={allImages[0]} alt={data.name} loading="lazy"/>
             : <div class="gallery-main-placeholder">↓</div>
           }
         </div>
@@ -49,7 +49,10 @@ const allImages = [data.image, ...(data.images ?? [])].filter(Boolean) as string
                 class={`gallery-thumb${i === 0 ? ' active' : ''}`}
                 data-src={src}
               >
-                <img src={src} alt="" loading="lazy" />
+                <img 
+                  src={src} alt="" 
+                  loading="lazy" 
+                />
               </div>
             ))}
           </div>
